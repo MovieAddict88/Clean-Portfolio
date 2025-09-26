@@ -34,6 +34,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($about['name'] ?? 'Portfolio'); ?>'s Portfolio</title>
     <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -132,11 +133,48 @@ try {
         <section id="contact" class="section">
             <h2>Contact Me</h2>
             <div class="contact-info">
-                <a href="mailto:<?php echo htmlspecialchars($about['email'] ?? ''); ?>">Email</a>
-                <?php if (!empty($about['linkedin_url'])): ?>
-                <a href="<?php echo htmlspecialchars($about['linkedin_url']); ?>" target="_blank">LinkedIn</a>
+                <?php if (!empty($about['address'])): ?>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span><?php echo htmlspecialchars($about['address']); ?></span>
+                </div>
                 <?php endif; ?>
-                <a href="tel:<?php echo htmlspecialchars($about['phone'] ?? ''); ?>">Phone</a>
+                <?php if (!empty($about['phone'])): ?>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:<?php echo htmlspecialchars($about['phone']); ?>"><?php echo htmlspecialchars($about['phone']); ?></a>
+                </div>
+                <?php endif; ?>
+                <?php if (!empty($about['email'])): ?>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:<?php echo htmlspecialchars($about['email']); ?>"><?php echo htmlspecialchars($about['email']); ?></a>
+                </div>
+                <?php endif; ?>
+                <?php if (!empty($about['facebook_url'])): ?>
+                <div class="contact-item">
+                    <i class="fab fa-facebook"></i>
+                    <a href="<?php echo htmlspecialchars($about['facebook_url']); ?>" target="_blank">Facebook</a>
+                </div>
+                <?php endif; ?>
+                <?php if (!empty($about['youtube_url'])): ?>
+                <div class="contact-item">
+                    <i class="fab fa-youtube"></i>
+                    <a href="<?php echo htmlspecialchars($about['youtube_url']); ?>" target="_blank">YouTube</a>
+                </div>
+                <?php endif; ?>
+                <?php if (!empty($about['tiktok_url'])): ?>
+                <div class="contact-item">
+                    <i class="fab fa-tiktok"></i>
+                    <a href="<?php echo htmlspecialchars($about['tiktok_url']); ?>" target="_blank">TikTok</a>
+                </div>
+                <?php endif; ?>
+                 <?php if (!empty($about['linkedin_url'])): ?>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="<?php echo htmlspecialchars($about['linkedin_url']); ?>" target="_blank">LinkedIn</a>
+                </div>
+                <?php endif; ?>
             </div>
         </section>
 
