@@ -35,7 +35,7 @@ try {
         }
 
         if (empty($error)) {
-            $stmt = $pdo->prepare('UPDATE about_me SET name = ?, photo_url = ?, tagline = ?, bio = ?, education = ?, philosophy = ?, email = ?, linkedin_url = ?, phone = ? WHERE id = 1');
+            $stmt = $pdo->prepare('UPDATE about_me SET name = ?, photo_url = ?, tagline = ?, bio = ?, education = ?, philosophy = ?, email = ?, linkedin_url = ?, phone = ?, address = ?, facebook_url = ?, youtube_url = ?, tiktok_url = ? WHERE id = 1');
             $stmt->execute([
                 $_POST['name'],
                 $photo_url,
@@ -45,7 +45,11 @@ try {
                 $_POST['philosophy'],
                 $_POST['email'],
                 $_POST['linkedin_url'],
-                $_POST['phone']
+                $_POST['phone'],
+                $_POST['address'],
+                $_POST['facebook_url'],
+                $_POST['youtube_url'],
+                $_POST['tiktok_url']
             ]);
             $message = "About Me section updated successfully!";
         }
@@ -153,6 +157,22 @@ try {
             <div class="form-group">
                 <label for="phone">Phone Number</label>
                 <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($about['phone']); ?>">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($about['address'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="facebook_url">Facebook URL</label>
+                <input type="text" id="facebook_url" name="facebook_url" value="<?php echo htmlspecialchars($about['facebook_url'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="youtube_url">YouTube URL</label>
+                <input type="text" id="youtube_url" name="youtube_url" value="<?php echo htmlspecialchars($about['youtube_url'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="tiktok_url">TikTok URL</label>
+                <input type="text" id="tiktok_url" name="tiktok_url" value="<?php echo htmlspecialchars($about['tiktok_url'] ?? ''); ?>">
             </div>
             <button type="submit">Save Changes</button>
         </form>
